@@ -7,10 +7,26 @@ const P95_RESPONSE_MS = Number(__ENV.P95_RESPONSE_MS || 3000);
 const THINK_TIME_MIN = Number(__ENV.THINK_TIME_MIN || 0.5);
 const THINK_TIME_MAX = Number(__ENV.THINK_TIME_MAX || 2.0);
 const BASE_ENDPOINT = (__ENV.BASE_ENDPOINT || "").replace(/\/+$/, "");
+const REQUEST_NAME_PATTERN = __ENV.REQUEST_NAME_PATTERN || "";
 
 const requests = new SharedArray("oao-postman-requests", () =>
   JSON.parse(open("./oao_requests.json")),
 );
+
+let requestNameRegex = null;
+if (REQUEST_NAME_PATTERN) {
+  try {
+    requestNameRegex = new RegExp(REQUEST_NAME_PATTERN);
+  } catch (error) {
+    throw new Error(
+      `Invalid REQUEST_NAME_PATTERN regex: "${REQUEST_NAME_PATTERN}". ${String(error)}`,
+    );
+  }
+}
+
+const selectedRequests = requestNameRegex
+  ? requests.filter((requestDefinition) => requestNameRegex.test(requestDefinition.name))
+  : requests;
 
 function parseVuCount(value, fallback) {
   const count = Number(value || fallback);
@@ -95,10 +111,16 @@ export function setup() {
       "BASE_ENDPOINT is required. Example: BASE_ENDPOINT=https://api.example.com",
     );
   }
+
+  if (selectedRequests.length === 0) {
+    throw new Error(
+      `No requests matched REQUEST_NAME_PATTERN="${REQUEST_NAME_PATTERN}".`,
+    );
+  }
 }
 
 export default function () {
-  for (const requestDefinition of requests) {
+  for (const requestDefinition of selectedRequests) {
     const method = requestDefinition.method.toUpperCase();
     const hasBody = requestDefinition.body !== null && requestDefinition.body !== undefined;
     const body = hasBody ? substituteEnvironmentVariables(requestDefinition.body) : null;
