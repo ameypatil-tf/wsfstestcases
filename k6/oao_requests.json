@@ -1,0 +1,252 @@
+[
+  {
+    "name": "Client APIs / CreateCustomerOrganization",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}/clients/v1/organizations",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n\"yearsAtAddress\" : 3,\r\n\"taxIdentifierType\" : 3,\r\n\"taxIdentifier\" : \"667436849\",\r\n\"ajaay\" : \"karthik\",\r\n\"primaryOfficer\" : 99996,\r\n\"phoneNumbers\" : [ {\r\n\"type\" : \"Home\",\r\n\"number\" : \"8384634574\"\r\n} ],\r\n\"organizationName\" : \"Fern Hospitals\",\r\n\"naicsCode\" : 111110,\r\n\"isBeneficialOwner\" : false,\r\n\"identifier1\" : {\r\n\"type\" : 13,\r\n\"issuer\" : \"NGSS OAO\",\r\n\"idNumber\" : \"350NGSS\"\r\n},\r\n\"identifier2\" : {\r\n\"type\" : 13,\r\n\"issuer\" : \"NGSS OAO\",\r\n\"idNumber\" : \"350NGSS\"\r\n},\r\n\"identifier3\" : {\r\n\"type\" : 13,\r\n\"issuer\" : \"NGSS OAO\",\r\n\"idNumber\" : \"350NGSS\"\r\n},\r\n\"emailAddresses\" : [ {\r\n\"type\" : \"Primary\",\r\n\"email\" : \"fern@hospitals.com\"\r\n} ],\r\n\"costCenter\" : 350,\r\n\"businessSince\" : \"1999-09-09\",\r\n\"branch\" : \"350\",\r\n\"addresses\" : [ {\r\n\"zip\" : \"21046\",\r\n\"type\" : \"Primary\",\r\n\"street1\" : \"Benjamin Franklin Drive\",\r\n\"state\" : \"MD\",\r\n\"country\" : \"USA\",\r\n\"city\" : \"Columbia\"\r\n} ]\r\n}"
+  },
+  {
+    "name": "Client APIs / Organization Relationship(Related Clients)",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}/clients/v1/2006648/related-clients",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n  \"relationships\": [\r\n    {\r\n      \"beneficialOwnerType\": 2,\r\n      \"inverseRelationshipType\": 1,\r\n      \"relationshipType\": 1,\r\n      \"clientId\": \"2006416\"\r\n    },\r\n    {\r\n      \"beneficialOwnerTitle\": \"Owner\",\r\n      \"beneficialOwnerType\": 2,\r\n      \"inverseRelationshipType\": 2,\r\n      \"relationshipType\": 2,\r\n      \"clientId\": \"0000123456\"\r\n    }\r\n  ]\r\n}"
+  },
+  {
+    "name": "Client APIs / Customer Inquiry",
+    "method": "GET",
+    "rawUrl": "{{BASE_ENDPOINT}}/clients/v1/individuals/0001182439/ibs",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": null
+  },
+  {
+    "name": "Client APIs / Account Search",
+    "method": "GET",
+    "rawUrl": "{{BASE_ENDPOINT}}clients/v1/0001182439/accounts",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": null
+  },
+  {
+    "name": "Client APIs / Customer Search",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}clients/v1/search-tax-identifier",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n    \"taxIdentifier\" : \"567438468\"\r\n}"
+  },
+  {
+    "name": "Client APIs / Authenticate OLB",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}/clients/v1/authenticate-online-banking",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n    \"routingNumber\" : \"031100102\",\r\n    \"userId\" : \"t\",\r\n    \"password\" : \"t\",\r\n    \"userAgentId\" : \"t\"\r\n}"
+  },
+  {
+    "name": "Client APIs / CreateCustomerIndividual",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}/clients/v1/individuals",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{   \r\n    \"title\": 1,\r\n\t\"firstName\": \"Josie\",\r\n\t\"lastName\": \"Fair\",\r\n\t\"suffix\": 1,\r\n\t\"taxIdentifier\": \"572467487\",//should change for every new run to eliminate TAXPAYER NUMBER ALREADY EXISTS error\r\n\t\"taxIdentifierType\": 1,\r\n\t\"dateOfBirth\": \"1997-07-23\",\r\n\t\"citizenship\": 1,\r\n    \"solicit\": false,\r\n  \t\"isBeneficiary\": false,\r\n  \t\"isBeneficialOwner\": false,\r\n  \t\"primaryOfficer\": 99996,\r\n  \t\"branch\": \"350\",\r\n  \t\"costCenter\": 350,\r\n  \t\"identifier1\": {\r\n    \t\"expirationDate\": \"2025-12-03\",\r\n    \t\"location\": \"DE\",\r\n    \t\"issuer\": \"DE\",\r\n    \t\"issueDate\": \"2001-12-03\",\r\n    \t\"type\": 2,\r\n    \t\"idNumber\": \"34567812357\"\r\n  \t},\r\n  \t\"addresses\": [\r\n    {\r\n      \"state\": \"DE\",\r\n      \"street3\": \"US 197202244\",\r\n      \"country\": \"US\",\r\n      \"street2\": \"New Castle DE\",\r\n      \"zip\": \"197202244\",\r\n      \"city\": \"New Castle\",\r\n      \"type\": \"Primary\",\r\n      \"street1\": \"3022 New Castle Avenue\"\r\n    }],\r\n    \"phoneNumbers\": [\r\n    {\r\n      \"number\": \"8384574564\",\r\n      \"type\": \"Home\"\r\n    }],\r\n    \"emailAddresses\": [\r\n    {\r\n      \"type\": \"Primary\",\r\n      \"email\": \"josiefair@sometestmail.com\"\r\n    }]\r\n}"
+  },
+  {
+    "name": "Client APIs / Enroll OLB",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}/clients/v1/00002008537/enroll-online-banking",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n  \"routingNumber\": \"031100102\",\r\n  \"userType\": 1,\r\n  \"emailAddress\": \"smith@clinton.com\",\r\n  \"lastName\": \"Clinton\",\r\n  \"taxIdentifier\": \"574686784\",\r\n  \"userId\": \"test1\",\r\n  \"password\": \"test1\",\r\n  \"adminId\": \"37\",\r\n  \"customerProfileType\": \"37\"\r\n}"
+  },
+  {
+    "name": "Client APIs / Update Customer(Demographics)",
+    "method": "PUT",
+    "rawUrl": "{{BASE_ENDPOINT}}/clients/v1/individuals/0001174189",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n  \"title\": 1,\r\n  \"firstName\": \"Charles\",\r\n  \"lastName\": \"Babbage\",\r\n  \"suffix\": 1,\r\n  \"mothersMaidenName\": \"Tilly\",\r\n  \"taxIdentifier\": \"123231321\",\r\n  \"taxIdentifierType\": 1,\r\n  \"dateOfBirth\": \"2025-12-03\",\r\n  \"citizenship\": 1,\r\n  \"w8Type\": 2,\r\n  \"solicit\": false,\r\n  \"solicitRestriction\": 1,\r\n  \"ownHome\": 2,\r\n  \"ethnicity\": 1,\r\n  \"incomeLevel\": 1,\r\n  \"isBeneficiary\": true,\r\n  \"isBeneficialOwner\": true,\r\n  \"primaryOfficer\": 99996,\r\n  \"branch\": \"350\",\r\n  \"costCenter\": 350,\r\n  \"identifier1\": {\r\n    \"expirationDate\": \"2025-12-03\",\r\n    \"location\": \"DE\",\r\n    \"issuer\": \"DE\",\r\n    \"issueDate\": \"2001-12-03\",\r\n    \"type\": 1,\r\n    \"idNumber\": \"1234567890\"\r\n  },\r\n  \"addresses\": [\r\n    {\r\n      \"state\": \"NJ\",\r\n      \"country\": \"US\",\r\n      \"street2\": \"University Heights\",\r\n      \"zip\": \"21046\",\r\n      \"city\": \"Newark\",\r\n      \"type\": \"Primary\",\r\n      \"street1\": \"323 Doctor Martin Luther King Junior\"\r\n    }\r\n  ],\r\n  \"phoneNumbers\": [\r\n    {\r\n      \"number\": \"8384563574\",\r\n      \"type\": \"Home\"\r\n    }\r\n  ],\r\n  \"emailAddresses\": [\r\n    {\r\n      \"type\": \"Primary\",\r\n      \"email\": \"charles@sometestmail.com\"\r\n    }\r\n  ]\r\n}"
+  },
+  {
+    "name": "Deposit Account APIs / Create DP Account",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}/deposit-accounts/v1/",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n  \"trackingCode\": \"TRK123\",\r\n  \"taxIdentifierType\": 1,\r\n  \"taxIdentifier\": \"472457475\",\r\n  \"statusCodes\": [],\r\n  \"shortName\": \"Great Khali\",\r\n  \"primaryOfficerCode\": \"99996\",\r\n  \"federalWithholdingIndicator\": \"D\",\r\n  \"depositCategory\": 2,\r\n  \"costCenterCode\": \"100\",\r\n  \"branchCode\": \"001\",\r\n  \"accountTypeCode\": \"37\",\r\n  \"accountNumber\": \"221759079\"\r\n}"
+  },
+  {
+    "name": "Deposit Account APIs / Create CD Account",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}/deposit-accounts/v1/220000707/certificates-of-deposit",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n  \"glCostCenter\": \"246\",\r\n  \"glAccountNumber\": \"10230\",\r\n  \"description4\": \"\",\r\n  \"description3\": \"\",\r\n  \"description2\": \"\",\r\n  \"description1\": \"1111222233331111\",\r\n  \"termIndicator\": 2,\r\n  \"term\": 12,\r\n  \"interestPlan\": 512,\r\n  \"amount\": 3333,\r\n  \"accountNumber\": \"220000707\"\r\n}"
+  },
+  {
+    "name": "Deposit Account APIs / Generate Account Number",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}/deposit-accounts/v1/account-numbers",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n    \"branchCode\" : \"350\",\r\n    \"accountTypeCode\" : \"37\"\r\n}"
+  },
+  {
+    "name": "Deposit Account APIs / Set Account Address(Demographics)",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}/deposit-accounts/v1/219299039/demographics",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n  \"workPhone\": \"3025555678\",\r\n  \"updateCIS\": true,\r\n  \"nameAddressTINOwnerIndicator\": 1,\r\n  \"nameAddressLine8\": \"\",\r\n  \"nameAddressLine7\": \"\",\r\n  \"nameAddressLine6\": \"\",\r\n  \"nameAddressLine5\": \"\",\r\n  \"nameAddressLine4\": \"Wilmington DE 19801\",\r\n  \"nameAddressLine3\": \"Suite 4B\",\r\n  \"nameAddressLine2\": \"123 Main Street\",\r\n  \"nameAddressLine1\": \"John Smith\",\r\n  \"homePhone\": \"3025551234\"\r\n}"
+  },
+  {
+    "name": "Deposit Account APIs / OnlineDollarTransaction",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}/deposit-accounts/v1/219299039/online-transactions",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n  \"description6\": \"description 6\",\r\n  \"description5\": \"description 5\",\r\n  \"description4\": \"description 4\",\r\n  \"description3\": \"Paypal\",\r\n  \"description2\": \"Online acct open\",\r\n  \"description1\": \"New acct funding\",\r\n  \"glCostCenter\": 246,\r\n  \"glAccountNumber\": 10230,\r\n  \"code\": 629,\r\n  \"amount\": 2500\r\n}"
+  },
+  {
+    "name": "Deposit Account APIs / Customer Account Reationship",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}/deposit-accounts/v1/cis",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n  \"relationships\": [\r\n    {\r\n      \"relationshipType\": 1,\r\n      \"primarySecondaryIndicator\": 1,\r\n      \"clientId\": \"0001182439\"\r\n    }\r\n  ],\r\n  \"nameAddressLineCode3\": \"C\",\r\n  \"nameAddressLineCode2\": \"S\",\r\n  \"nameAddressLineCode1\": \"N\",\r\n  \"nameAddressLine3\": \"New Castle DE 197202244\",\r\n  \"nameAddressLine2\": \"3022 New Castle Avenue\",\r\n  \"nameAddressLine1\": \"Josie Fair\",\r\n  \"accountNumber\": \"221759079\"\r\n}"
+  },
+  {
+    "name": "Deposit Account APIs / CreateHoldOnAccount",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}/deposit-accounts/v1/219299039/holds",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n  \"deleteIndicator\": true,\r\n  \"expirationDate\": \"2025-12-22\",\r\n  \"overrideIndicator\": true,\r\n  \"description\": \"Temp account hold\",\r\n  \"requestor\": \"JohnDoe\",\r\n  \"type\": 1,\r\n  \"amount\": 0\r\n}"
+  },
+  {
+    "name": "Deposit Account APIs / Account Keyword",
+    "method": "PUT",
+    "rawUrl": "{{BASE_ENDPOINT}}/deposit-accounts/v1/219299039/keywords",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n  \"transactionCode\": 380,\r\n  \"keywordSegmentId\": \"\",\r\n  \"keywords\": [\r\n    {\r\n      \"code\": \"CMSESP\",\r\n      \"value\": \"Y\"\r\n    },\r\n    {\r\n      \"code\": \"OPTMTH\",\r\n      \"value\": \"OAC\"\r\n    }\r\n  ]\r\n}"
+  },
+  {
+    "name": "ACH / ACH Schedule",
+    "method": "GET",
+    "rawUrl": "{{BASE_ENDPOINT}}/payments/v1/processing-schedules?effective-date=2024-08-23",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": null
+  },
+  {
+    "name": "ACH / ACH File Upload",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}/payments/v1/ach",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n  \"fileName\": \"ACH_Debit_2109140154_1.txt\",\r\n  \"fileContents\": \"MTAxIDIxMjM0NTY3OCAgICAgICAgICAyMTA5MTQwMTU0MTA5NDEwMVdTRlMgQmFuayBDVSAgICAgICAgICAgV1NGUyBCYW5rIENSRURJVCAgICAgICAgICAgICAgIA0KNTIyNVdTRlMgQmFuayAgICAgICBXU0ZTIEJhbmsgQ1JFICAgICAgIDExMjM0NTY3OCBXRUJPTkxJTkVBQ0NUMjEwOTE0MjEwOTE1ICAgMTMxMTAwMTAyMDAwMDAwMQ0KNjI3MDExNDAxNTMzMTExMTIyMjIzMzMzMDAwMCAwMDAwMjUwMDAwQW1leSBBcnVuIFBBdGlsQW1leSBBcnVuIFBBdGlsICAgICAgIFMgMDMxMTAwMTAyMDAwMDAwMQ0KNjM3MDExNDAxNTMzMTExMTIyMjIzMzMzMTExMSAwMDAwMzAwMDAwTWljaGVsbGUgc21pdGggTWljaGVsbGUgc21pdGggICAgICAgIFMgMDMxMTAwMTAyMDAwMDAwMg0KODIyNTAwMDAwMjAwMDIyODAzMDYwMDAwMDA1NTAwMDAwMDAwMDAwMDAwMDAxMTIzNDU2NzggICAgICAgICAgICAgICAgICAgICAgICAgIDMxMTAwMTAyMDAwMDAwMQ0KNTIyMFdTRlMgQmFuayAgICAgICBXU0ZTIEJhbmsgQ1JFICAgICAgIDExMjM0NTY3OCBQUERPTkxJTkVBQ0NUMjEwOTE0MjEwOTE1ICAgMTMxMTAwMTAyMDAwMDAwMg0KNjIyMzEyMzQ1Njc4ICAgICAgICAgICAgICAgICAwMDAwMjUwMDAwQW1leSBBcnVuIFBBdGlsQW1leSBBcnVuIFBBdGlsICAgICAgICAgMDMxMTAwMTAyMDAwMDAwMQ0KNjQyMzEyMzQ1Njc4NDEyMzQ1NjcgICAgICAgICAwMDAwMzAwMDAwTWljaGVsbGUgc21pdGggTWljaGVsbGUgc21pdGggICAgICAgICAgMDMxMTAwMTAyMDAwMDAwMg0KODIyMDAwMDAwMjAwNjI0NjkxMzQwMDAwMDAwMDAwMDAwMDAwMDA1NTAwMDAxMTIzNDU2NzggICAgICAgICAgICAgICAgICAgICAgICAgIDMxMTAwMTAyMDAwMDAwMg0KOTAwMDAwMjAwMDAwMTAwMDAwMDA0MDA2NDc0OTQ0MDAwMDAwMDU1MDAwMDAwMDAwMDU1MDAwMCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIA0=\"\r\n}"
+  },
+  {
+    "name": "Documents FCM / FCM Upload Document Types",
+    "method": "GET",
+    "rawUrl": "{{BASE_ENDPOINT}}/documents/v2/document-types",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": null
+  },
+  {
+    "name": "Documents FCM / FCM Upload",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}/documents/v2/",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n  \"accounts\": [\r\n    {\r\n      \"account\": \"221930142\"\r\n    }\r\n  ],\r\n  \"fileName\": \"Drivers License\",\r\n  \"date\": \"2025-06-13\",\r\n  \"format\": \"jpg\",\r\n  \"pages\": 1,\r\n  \"description\": \"TESTAPIOST\",\r\n  \"type\": \"DI018\",\r\n  \"fileContents\": \"MTAxIDY5MTAwMDEzNCAzMDEwODE1MDgyMTA3MjgwODM1OTA5NDEwMUNvbW11bml0eUFtZXJpY2EgQ1UgICAgQ09NTVVOSVRZQU1FUklDQSBDUkVESVQ4ODg4ODg4OA0KNTIyNUNPTU1VTklUWUFNRVJJQ0FDT01NVU5JVFlBTUVSSUNBIENSRTQ0NjAxNTA3MiBXRUJPTkxJTkVBQ0NUMjEwNzI4MjEwNzI5ICAgMTMwMTA4MTUwMDAwMDAwMQ0KNjI3MDExNDAxNTMzMTExMTIyMjIzMzMzMDAwMCAwMDAwMDEyNTI1TGVldGEgam9obiAgICAgTGVldGEgam9obiAgICA\"\r\n}"
+  },
+  {
+    "name": "Utilities / Verafin",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}/utilities/v1/file-transfer/verafin",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n  \"fileContents\": \"MTAxIDY5MTAwMDEzNCAzMDEwODE1MDgyMTA3MjgwODM1OTA5NDEwMUNvbW11bml0eUFtZXJpY2EgQ1UgICAgQ09NTVVOSVRZQU1FUklDQSBDUkVESVQ4ODg4ODg4OA0KNTIyNUNPTU1VTklUWUFNRVJJQ0FDT01NVU5JVFlBTUVSSUNBIENSRTQ0NjAxNTA3MiBXRUJPTkxJTkVBQ0NUMjEwNzI4MjEwNzI5ICAgMTMwMTA4MTUwMDAwMDAwMQ0KNjI3MDExNDAxNTMzMTExMTIyMjIzMzMzMDAwMCAwMDAwMDEyNTI1TGVldGEgam9obiAgICAgTGVldGEgam9obiAgICA\",\r\n  \"fileName\": \"verafin-file.csv\"\r\n}"
+  },
+  {
+    "name": "Debit Card APIs / CreateCardNumber",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}/debit-cards/v1/card-numbers",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n  \"prefixNumber\": \"412141\"\r\n}"
+  },
+  {
+    "name": "Debit Card APIs / CreateCardAccount",
+    "method": "POST",
+    "rawUrl": "{{BASE_ENDPOINT}}/debit-cards/v1/",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n  \"primaryDdaAccountNumber\": \"215552058\",\r\n  \"personalLimits\": false,\r\n  \"cardHolderTaxIdentifier\": \"938267598\",\r\n  \"cardHolderBirthDate\": \"1970-04-06\",\r\n  \"cardHolderAddress\": {\r\n    \"zip\": \"08837\",\r\n    \"state\": \"NJ\",\r\n    \"city\": \"Wilmington\",\r\n    \"street1\": \"123 Test St\"\r\n  },\r\n  \"nameLine1\": \"John Doe\",\r\n  \"cardHolderLastName\": \"Doe\",\r\n  \"cardHolderFirstName\": \"Amey Patil\",\r\n  \"prefixNumber\": \"412141\",\r\n  \"cardNumber\": \"4121410000100249\"\r\n}"
+  },
+  {
+    "name": "Debit Card APIs / CreateCardAddress(Demographics)",
+    "method": "PUT",
+    "rawUrl": "{{BASE_ENDPOINT}}/debit-cards/v1/demographics",
+    "headers": {
+      "client_id": "{{WSFS_CLIENT_ID}}",
+      "client_secret": "{{WSFS_CLIENT_SECRET}}"
+    },
+    "body": "{\r\n  \"nameLine2\": \"Jane Doe\",\r\n  \"nameLine1\": \"John Doe\",\r\n  \"cardNumber\": \"4121410000106945\",\r\n  \"cardHolderWorkPhone\": \"3025555678\",\r\n  \"cardHolderTaxIdentifier\": \"938267598\",\r\n  \"cardHolderMobile\": \"3025559012\",\r\n  \"cardHolderLastName\": \"Doe\",\r\n  \"cardHolderHomePhone\": \"3025551234\",\r\n  \"cardHolderFirstName\": \"Amey\",\r\n  \"cardHolderBirthDate\": \"1970-04-06\",\r\n  \"cardHolderAddress\": {\r\n    \"zip\": \"08837\",\r\n    \"street1\": \"123 Test St\",\r\n    \"state\": \"NJ\",\r\n    \"city\": \"Wilmington\"\r\n  }\r\n}"
+  }
+]
