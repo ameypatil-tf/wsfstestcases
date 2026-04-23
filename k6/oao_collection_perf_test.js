@@ -8,6 +8,8 @@ const THINK_TIME_MIN = Number(__ENV.THINK_TIME_MIN || 0.5);
 const THINK_TIME_MAX = Number(__ENV.THINK_TIME_MAX || 2.0);
 const BASE_ENDPOINT = (__ENV.BASE_ENDPOINT || "").replace(/\/+$/, "");
 const REQUEST_NAME_PATTERN = __ENV.REQUEST_NAME_PATTERN || "";
+const LOG_RESPONSE_BODY = (__ENV.LOG_RESPONSE_BODY || "true").toLowerCase() !== "false";
+const RESPONSE_BODY_MAX_CHARS = Number(__ENV.RESPONSE_BODY_MAX_CHARS || 1000);
 
 const requests = new SharedArray("oao-postman-requests", () =>
   JSON.parse(open("./oao_requests.json")),
@@ -83,6 +85,26 @@ function buildHeaders(requestHeaders, hasBody) {
   return headers;
 }
 
+function formatResponseBody(responseBody) {
+  if (!LOG_RESPONSE_BODY) {
+    return null;
+  }
+
+  if (typeof responseBody !== "string" || responseBody.length === 0) {
+    return "[empty response body]";
+  }
+
+  const maxChars = Number.isFinite(RESPONSE_BODY_MAX_CHARS) && RESPONSE_BODY_MAX_CHARS > 0
+    ? RESPONSE_BODY_MAX_CHARS
+    : 1000;
+
+  if (responseBody.length <= maxChars) {
+    return responseBody;
+  }
+
+  return `${responseBody.slice(0, maxChars)}... [truncated]`;
+}
+
 export const options = {
   stages: [
     {
@@ -141,9 +163,15 @@ export default function () {
     });
 
     if (!checksPassed) {
-      console.error(
-        `[${requestDefinition.name}] status=${response.status} duration_ms=${response.timings.duration} url=${url}`,
-      );
+      const failureSummary =
+        `[${requestDefinition.name}] status=${response.status} duration_ms=${response.timings.duration} url=${url}`;
+      const responseBody = formatResponseBody(response.body);
+
+      if (responseBody === null) {
+        console.error(failureSummary);
+      } else {
+        console.error(`${failureSummary} response_body=${responseBody}`);
+      }
     }
 
     sleep(randomThinkTimeSeconds());

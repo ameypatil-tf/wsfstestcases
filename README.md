@@ -34,6 +34,8 @@ The Postman collection was converted to a k6 test:
 - `MAX_RESPONSE_MS` (default: `2000`)
 - `P95_RESPONSE_MS` (default: `3000`)
 - `REQUEST_NAME_PATTERN` (optional regex; runs only matching request names)
+- `LOG_FAILURE_BODY` (default: `false`; set `true` to log response body on failed checks)
+- `MAX_LOG_BODY_CHARS` (default: `2000`; truncates logged response body length)
 
 ### Example run
 
