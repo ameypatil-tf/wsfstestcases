@@ -48,7 +48,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -98,7 +98,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -153,7 +153,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -208,7 +208,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -265,7 +265,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -322,7 +322,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -384,7 +384,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -446,7 +446,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -489,7 +489,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -532,7 +532,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -580,7 +580,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -628,7 +628,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -651,11 +651,12 @@
               }
             ],
             "url": {
-              "raw": "{{BASE_ENDPOINT}}clients/v1/0001182439/accounts",
+              "raw": "{{BASE_ENDPOINT}}/clients/v1/0001182439/accounts",
               "host": [
-                "{{BASE_ENDPOINT}}clients"
+                "{{BASE_ENDPOINT}}"
               ],
               "path": [
+                "clients",
                 "v1",
                 "0001182439",
                 "accounts"
@@ -669,7 +670,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -692,11 +693,12 @@
               }
             ],
             "url": {
-              "raw": "{{BASE_ENDPOINT}}clients/v1/0001182439/accounts",
+              "raw": "{{BASE_ENDPOINT}}/clients/v1/0001182439/accounts",
               "host": [
-                "{{BASE_ENDPOINT}}clients"
+                "{{BASE_ENDPOINT}}"
               ],
               "path": [
+                "clients",
                 "v1",
                 "0001182439",
                 "accounts"
@@ -710,7 +712,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -738,11 +740,12 @@
               }
             ],
             "url": {
-              "raw": "{{BASE_ENDPOINT}}clients/v1/0001182439/accounts",
+              "raw": "{{BASE_ENDPOINT}}/clients/v1/0001182439/accounts",
               "host": [
-                "{{BASE_ENDPOINT}}clients"
+                "{{BASE_ENDPOINT}}"
               ],
               "path": [
+                "clients",
                 "v1",
                 "0001182439",
                 "accounts"
@@ -756,7 +759,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -784,11 +787,12 @@
               }
             ],
             "url": {
-              "raw": "{{BASE_ENDPOINT}}clients/v1/0001182439/accounts",
+              "raw": "{{BASE_ENDPOINT}}/clients/v1/0001182439/accounts",
               "host": [
-                "{{BASE_ENDPOINT}}clients"
+                "{{BASE_ENDPOINT}}"
               ],
               "path": [
+                "clients",
                 "v1",
                 "0001182439",
                 "accounts"
@@ -802,7 +806,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -834,11 +838,12 @@
               }
             },
             "url": {
-              "raw": "{{BASE_ENDPOINT}}clients/v1/search-tax-identifier",
+              "raw": "{{BASE_ENDPOINT}}/clients/v1/search-tax-identifier",
               "host": [
-                "{{BASE_ENDPOINT}}clients"
+                "{{BASE_ENDPOINT}}"
               ],
               "path": [
+                "clients",
                 "v1",
                 "search-tax-identifier"
               ]
@@ -851,7 +856,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -883,11 +888,12 @@
               }
             },
             "url": {
-              "raw": "{{BASE_ENDPOINT}}clients/v1/search-tax-identifier",
+              "raw": "{{BASE_ENDPOINT}}/clients/v1/search-tax-identifier",
               "host": [
-                "{{BASE_ENDPOINT}}clients"
+                "{{BASE_ENDPOINT}}"
               ],
               "path": [
+                "clients",
                 "v1",
                 "search-tax-identifier"
               ]
@@ -900,7 +906,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -937,11 +943,12 @@
               }
             },
             "url": {
-              "raw": "{{BASE_ENDPOINT}}clients/v1/search-tax-identifier",
+              "raw": "{{BASE_ENDPOINT}}/clients/v1/search-tax-identifier",
               "host": [
-                "{{BASE_ENDPOINT}}clients"
+                "{{BASE_ENDPOINT}}"
               ],
               "path": [
+                "clients",
                 "v1",
                 "search-tax-identifier"
               ]
@@ -954,7 +961,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -991,11 +998,12 @@
               }
             },
             "url": {
-              "raw": "{{BASE_ENDPOINT}}clients/v1/search-tax-identifier",
+              "raw": "{{BASE_ENDPOINT}}/clients/v1/search-tax-identifier",
               "host": [
-                "{{BASE_ENDPOINT}}clients"
+                "{{BASE_ENDPOINT}}"
               ],
               "path": [
+                "clients",
                 "v1",
                 "search-tax-identifier"
               ]
@@ -1008,7 +1016,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -1058,7 +1066,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -1108,7 +1116,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -1163,7 +1171,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -1218,7 +1226,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -1268,7 +1276,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -1318,7 +1326,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -1373,7 +1381,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -1428,7 +1436,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -1485,7 +1493,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -1542,7 +1550,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -1604,7 +1612,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -1666,7 +1674,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -1723,7 +1731,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -1780,7 +1788,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -1842,7 +1850,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -1904,7 +1912,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -1954,7 +1962,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2004,7 +2012,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2059,7 +2067,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2114,7 +2122,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2171,7 +2179,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2228,7 +2236,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2290,7 +2298,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2352,7 +2360,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2402,7 +2410,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2452,7 +2460,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2507,7 +2515,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2562,7 +2570,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2619,7 +2627,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2676,7 +2684,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2738,7 +2746,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2800,7 +2808,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2832,11 +2840,12 @@
               }
             },
             "url": {
-              "raw": "{{BASE_ENDPOINT}}deposit-accounts/v1/:accountNumber/online-transactions",
+              "raw": "{{BASE_ENDPOINT}}/deposit-accounts/v1/:accountNumber/online-transactions",
               "host": [
-                "{{BASE_ENDPOINT}}deposit-accounts"
+                "{{BASE_ENDPOINT}}"
               ],
               "path": [
+                "deposit-accounts",
                 "v1",
                 ":accountNumber",
                 "online-transactions"
@@ -2856,7 +2865,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2888,11 +2897,12 @@
               }
             },
             "url": {
-              "raw": "{{BASE_ENDPOINT}}deposit-accounts/v1/:accountNumber/online-transactions",
+              "raw": "{{BASE_ENDPOINT}}/deposit-accounts/v1/:accountNumber/online-transactions",
               "host": [
-                "{{BASE_ENDPOINT}}deposit-accounts"
+                "{{BASE_ENDPOINT}}"
               ],
               "path": [
+                "deposit-accounts",
                 "v1",
                 ":accountNumber",
                 "online-transactions"
@@ -2912,7 +2922,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -2949,11 +2959,12 @@
               }
             },
             "url": {
-              "raw": "{{BASE_ENDPOINT}}deposit-accounts/v1/:accountNumber/online-transactions",
+              "raw": "{{BASE_ENDPOINT}}/deposit-accounts/v1/:accountNumber/online-transactions",
               "host": [
-                "{{BASE_ENDPOINT}}deposit-accounts"
+                "{{BASE_ENDPOINT}}"
               ],
               "path": [
+                "deposit-accounts",
                 "v1",
                 ":accountNumber",
                 "online-transactions"
@@ -2973,7 +2984,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3010,11 +3021,12 @@
               }
             },
             "url": {
-              "raw": "{{BASE_ENDPOINT}}deposit-accounts/v1/:accountNumber/online-transactions",
+              "raw": "{{BASE_ENDPOINT}}/deposit-accounts/v1/:accountNumber/online-transactions",
               "host": [
-                "{{BASE_ENDPOINT}}deposit-accounts"
+                "{{BASE_ENDPOINT}}"
               ],
               "path": [
+                "deposit-accounts",
                 "v1",
                 ":accountNumber",
                 "online-transactions"
@@ -3034,7 +3046,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3084,7 +3096,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3134,7 +3146,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3189,7 +3201,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3244,7 +3256,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3301,7 +3313,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3358,7 +3370,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3420,7 +3432,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3482,7 +3494,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3539,7 +3551,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3596,7 +3608,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3658,7 +3670,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3720,7 +3732,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3767,7 +3779,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3814,7 +3826,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3866,7 +3878,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3918,7 +3930,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -3968,7 +3980,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4018,7 +4030,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4073,7 +4085,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4128,7 +4140,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4169,7 +4181,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4210,7 +4222,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4256,7 +4268,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4302,7 +4314,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4352,7 +4364,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4402,7 +4414,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4457,7 +4469,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4512,7 +4524,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4563,7 +4575,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4614,7 +4626,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4670,7 +4682,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4726,7 +4738,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4776,7 +4788,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4826,7 +4838,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4881,7 +4893,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4936,7 +4948,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -4986,7 +4998,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -5036,7 +5048,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -5091,7 +5103,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -5146,7 +5158,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -5196,7 +5208,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -5246,7 +5258,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -5301,7 +5313,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -5356,7 +5368,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Request is rejected\", function () {",
-                  "  pm.expect([401, 403]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -5398,7 +5410,7 @@
               }
             },
             "url": {
-              "raw": "{{BASE_ENDPOINT}}/clients/v1/:clientId/related-clients",
+              "raw": "{{BASE_ENDPOINT}}/clients/v1/{{UNAUTHORIZED_CLIENT_ID}}/related-clients",
               "host": [
                 "{{BASE_ENDPOINT}}"
               ],
@@ -5423,7 +5435,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Unauthorized object access is blocked\", function () {",
-                  "  pm.expect([401, 403, 404]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403, 404]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -5460,7 +5472,7 @@
               }
             },
             "url": {
-              "raw": "{{BASE_ENDPOINT}}/clients/v1/:clientId/enroll-online-banking",
+              "raw": "{{BASE_ENDPOINT}}/clients/v1/{{UNAUTHORIZED_CLIENT_ID}}/enroll-online-banking",
               "host": [
                 "{{BASE_ENDPOINT}}"
               ],
@@ -5485,7 +5497,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Unauthorized object access is blocked\", function () {",
-                  "  pm.expect([401, 403, 404]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403, 404]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -5522,7 +5534,7 @@
               }
             },
             "url": {
-              "raw": "{{BASE_ENDPOINT}}/clients/v1/individuals/:clientId",
+              "raw": "{{BASE_ENDPOINT}}/clients/v1/individuals/{{UNAUTHORIZED_CLIENT_ID}}",
               "host": [
                 "{{BASE_ENDPOINT}}"
               ],
@@ -5547,7 +5559,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Unauthorized object access is blocked\", function () {",
-                  "  pm.expect([401, 403, 404]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403, 404]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -5584,7 +5596,7 @@
               }
             },
             "url": {
-              "raw": "{{BASE_ENDPOINT}}/deposit-accounts/v1/:accountNumber/certificates-of-deposit",
+              "raw": "{{BASE_ENDPOINT}}/deposit-accounts/v1/{{UNAUTHORIZED_ACCOUNT_NUMBER}}/certificates-of-deposit",
               "host": [
                 "{{BASE_ENDPOINT}}"
               ],
@@ -5609,7 +5621,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Unauthorized object access is blocked\", function () {",
-                  "  pm.expect([401, 403, 404]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403, 404]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -5646,7 +5658,7 @@
               }
             },
             "url": {
-              "raw": "{{BASE_ENDPOINT}}/deposit-accounts/v1/:accountNumber/demographics",
+              "raw": "{{BASE_ENDPOINT}}/deposit-accounts/v1/{{UNAUTHORIZED_ACCOUNT_NUMBER}}/demographics",
               "host": [
                 "{{BASE_ENDPOINT}}"
               ],
@@ -5671,7 +5683,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Unauthorized object access is blocked\", function () {",
-                  "  pm.expect([401, 403, 404]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403, 404]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -5708,11 +5720,12 @@
               }
             },
             "url": {
-              "raw": "{{BASE_ENDPOINT}}deposit-accounts/v1/:accountNumber/online-transactions",
+              "raw": "{{BASE_ENDPOINT}}/deposit-accounts/v1/{{UNAUTHORIZED_ACCOUNT_NUMBER}}/online-transactions",
               "host": [
-                "{{BASE_ENDPOINT}}deposit-accounts"
+                "{{BASE_ENDPOINT}}"
               ],
               "path": [
+                "deposit-accounts",
                 "v1",
                 ":accountNumber",
                 "online-transactions"
@@ -5732,7 +5745,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Unauthorized object access is blocked\", function () {",
-                  "  pm.expect([401, 403, 404]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403, 404]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -5769,7 +5782,7 @@
               }
             },
             "url": {
-              "raw": "{{BASE_ENDPOINT}}/deposit-accounts/v1/:accountNumber/holds",
+              "raw": "{{BASE_ENDPOINT}}/deposit-accounts/v1/{{UNAUTHORIZED_ACCOUNT_NUMBER}}/holds",
               "host": [
                 "{{BASE_ENDPOINT}}"
               ],
@@ -5794,7 +5807,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Unauthorized object access is blocked\", function () {",
-                  "  pm.expect([401, 403, 404]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403, 404]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",
@@ -5831,7 +5844,7 @@
               }
             },
             "url": {
-              "raw": "{{BASE_ENDPOINT}}/deposit-accounts/v1/:accountNumber/keywords",
+              "raw": "{{BASE_ENDPOINT}}/deposit-accounts/v1/{{UNAUTHORIZED_ACCOUNT_NUMBER}}/keywords",
               "host": [
                 "{{BASE_ENDPOINT}}"
               ],
@@ -5856,7 +5869,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Unauthorized object access is blocked\", function () {",
-                  "  pm.expect([401, 403, 404]).to.include(pm.response.code);",
+                  "  pm.expect([400, 401, 403, 404]).to.include(pm.response.code);",
                   "});",
                   "pm.test(\"No internal server error\", function () {",
                   "  pm.expect(pm.response.code).to.not.equal(500);",

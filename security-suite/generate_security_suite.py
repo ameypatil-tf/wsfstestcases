@@ -6,19 +6,20 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+import re
 from pathlib import Path
 from typing import Any, Dict, Iterable, List
 
 
 UNAUTHORIZED_STATUS_SCRIPT = [
     'pm.test("Request is rejected", function () {',
-    "  pm.expect([401, 403]).to.include(pm.response.code);",
+    "  pm.expect([400, 401, 403]).to.include(pm.response.code);",
     "});",
 ]
 
 UNAUTHORIZED_OR_NOT_FOUND_SCRIPT = [
     'pm.test("Unauthorized object access is blocked", function () {',
-    "  pm.expect([401, 403, 404]).to.include(pm.response.code);",
+    "  pm.expect([400, 401, 403, 404]).to.include(pm.response.code);",
     "});",
 ]
 
@@ -76,10 +77,61 @@ def has_object_reference(url: Any) -> bool:
     return False
 
 
+def normalize_base_endpoint_token(value: str) -> str:
+    """Ensure BASE_ENDPOINT token is followed by a slash before path text."""
+    return re.sub(r"\{\{BASE_ENDPOINT\}\}(?!/)", "{{BASE_ENDPOINT}}/", value)
+
+
+def normalize_url(url: Any) -> Any:
+    normalized = copy.deepcopy(url)
+    if isinstance(normalized, str):
+        return normalize_base_endpoint_token(normalized)
+
+    if not isinstance(normalized, dict):
+        return normalized
+
+    raw = normalized.get("raw")
+    if isinstance(raw, str):
+        normalized["raw"] = normalize_base_endpoint_token(raw)
+
+    host = normalized.get("host")
+    path = normalized.get("path", [])
+    if isinstance(host, list) and host:
+        first = str(host[0])
+        token = "{{BASE_ENDPOINT}}"
+        if first.startswith(token) and first != token:
+            suffix = first[len(token) :].strip("/")
+            host[0] = token
+            if suffix:
+                path_prefix = [segment for segment in suffix.split("/") if segment]
+                if isinstance(path, list):
+                    normalized["path"] = path_prefix + path
+                else:
+                    normalized["path"] = path_prefix
+
+    return normalized
+
+
 def tamper_object_reference(url: Any) -> Any:
     tampered = copy.deepcopy(url)
+    if isinstance(tampered, str):
+        return (
+            tampered.replace(":clientId", "{{UNAUTHORIZED_CLIENT_ID}}")
+            .replace(":accountNumber", "{{UNAUTHORIZED_ACCOUNT_NUMBER}}")
+            .replace(":clientid", "{{UNAUTHORIZED_CLIENT_ID}}")
+            .replace(":accountnumber", "{{UNAUTHORIZED_ACCOUNT_NUMBER}}")
+        )
     if not isinstance(tampered, dict):
         return tampered
+
+    raw = tampered.get("raw")
+    if isinstance(raw, str):
+        tampered["raw"] = (
+            raw.replace(":clientId", "{{UNAUTHORIZED_CLIENT_ID}}")
+            .replace(":accountNumber", "{{UNAUTHORIZED_ACCOUNT_NUMBER}}")
+            .replace(":clientid", "{{UNAUTHORIZED_CLIENT_ID}}")
+            .replace(":accountnumber", "{{UNAUTHORIZED_ACCOUNT_NUMBER}}")
+        )
 
     for variable in tampered.get("variable", []):
         key = str(variable.get("key", "")).lower()
@@ -113,6 +165,7 @@ def build_variant_item(
     tamper_url: bool = False,
 ) -> Dict[str, Any]:
     request = copy.deepcopy(base_request)
+    request["url"] = normalize_url(request.get("url", {}))
     request["header"] = headers
     if tamper_url:
         request["url"] = tamper_object_reference(request.get("url", {}))

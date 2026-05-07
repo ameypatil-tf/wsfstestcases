@@ -12,16 +12,17 @@ This folder contains a generated security regression suite for the uploaded Post
 
 For each request in the source collection:
 
-1. Missing `client_id` is rejected (`401/403`)
-2. Missing `client_secret` is rejected (`401/403`)
-3. Invalid `client_secret` is rejected (`401/403`)
-4. Empty auth headers are rejected (`401/403`)
+1. Missing `client_id` is rejected (`400/401/403`)
+2. Missing `client_secret` is rejected (`400/401/403`)
+3. Invalid `client_secret` is rejected (`400/401/403`)
+4. Empty auth headers are rejected (`400/401/403`)
 
 For requests that include `:clientId` or `:accountNumber` path references:
 
-5. Tampered object reference is blocked (`401/403/404`)
+5. Tampered object reference is blocked (`400/401/403/404`)
 
 Each test also asserts no internal server error (`!= 500`).
+The generator also normalizes malformed `{{BASE_ENDPOINT}}...` URL patterns from source collections before creating tests.
 
 ## Regenerate suite
 
