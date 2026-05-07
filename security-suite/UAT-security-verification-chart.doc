@@ -1,0 +1,60 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>UAT Security Verification - Chart View</title>
+</head>
+<body>
+  <h1>UAT Security Verification - Chart View</h1>
+  <p><strong>Environment:</strong> api-uat.wsfsbank.com</p>
+  <p><strong>Scope:</strong> Auth Header Negative Tests + BOLA Tampered Object Access</p>
+
+  <h2>1) Overall Result</h2>
+  <table border="1" cellspacing="0" cellpadding="6">
+    <tr><th>Metric</th><th>Value</th></tr>
+    <tr><td>Total Requests Run</td><td>108</td></tr>
+    <tr><td>Total Assertions</td><td>216</td></tr>
+    <tr><td>Request Failures</td><td>0</td></tr>
+    <tr><td>Assertion Failures</td><td>0</td></tr>
+    <tr><td>Overall Status</td><td>PASS</td></tr>
+  </table>
+
+  <h2>2) Verification Coverage</h2>
+  <table border="1" cellspacing="0" cellpadding="6">
+    <tr>
+      <th>Verification Area</th>
+      <th>What Was Tested</th>
+      <th>Test Count</th>
+      <th>Pass</th>
+      <th>Fail</th>
+      <th>Pass Rate</th>
+    </tr>
+    <tr><td>Auth Header Negative</td><td>Missing client_id</td><td>25</td><td>25</td><td>0</td><td>100%</td></tr>
+    <tr><td>Auth Header Negative</td><td>Missing client_secret</td><td>25</td><td>25</td><td>0</td><td>100%</td></tr>
+    <tr><td>Auth Header Negative</td><td>Invalid client_secret</td><td>25</td><td>25</td><td>0</td><td>100%</td></tr>
+    <tr><td>Auth Header Negative</td><td>Empty client_id + client_secret</td><td>25</td><td>25</td><td>0</td><td>100%</td></tr>
+    <tr><td>Object Authorization (BOLA)</td><td>Tampered clientId/accountNumber</td><td>8</td><td>8</td><td>0</td><td>100%</td></tr>
+    <tr><td><strong>Total</strong></td><td><strong>All above</strong></td><td><strong>108</strong></td><td><strong>108</strong></td><td><strong>0</strong></td><td><strong>100%</strong></td></tr>
+  </table>
+
+  <h2>3) Response Code Behavior (Observed)</h2>
+  <table border="1" cellspacing="0" cellpadding="6">
+    <tr><th>Condition</th><th>Accepted as Secure Reject</th><th>Observed in UAT</th></tr>
+    <tr><td>Invalid/Missing Auth Headers</td><td>400 / 401 / 403</td><td>Mostly 400</td></tr>
+    <tr><td>BOLA Tampered Object Access</td><td>400 / 401 / 403 / 404</td><td>Mostly 400</td></tr>
+    <tr><td>Server Stability Check</td><td>Not 500</td><td>No 500 responses</td></tr>
+  </table>
+
+  <h2>4) BOLA Endpoint Status</h2>
+  <table border="1" cellspacing="0" cellpadding="6">
+    <tr><th>Endpoint/Test Name</th><th>Status</th></tr>
+    <tr><td>Organization Relationship (Related Clients)</td><td>Pass</td></tr>
+    <tr><td>Enroll OLB</td><td>Pass</td></tr>
+    <tr><td>Update Customer (Demographics)</td><td>Pass</td></tr>
+    <tr><td>Create CD Account</td><td>Pass</td></tr>
+    <tr><td>Set Account Address (Demographics)</td><td>Pass</td></tr>
+    <tr><td>OnlineDollarTransaction</td><td>Pass</td></tr>
+    <tr><td>CreateHoldOnAccount</td><td>Pass</td></tr>
+    <tr><td>Account Keyword</td><td>Pass</td></tr>
+  </table>
+</body>
+</html>
