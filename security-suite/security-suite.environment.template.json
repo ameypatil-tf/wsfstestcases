@@ -1,0 +1,39 @@
+{
+  "id": "a40c5f0d-59f3-4657-ad5a-a420467ef4f8",
+  "name": "OAO Security Suite Environment Template",
+  "values": [
+    {
+      "key": "BASE_ENDPOINT",
+      "value": "https://api.example.com",
+      "enabled": true
+    },
+    {
+      "key": "WSFS_CLIENT_ID",
+      "value": "",
+      "enabled": true
+    },
+    {
+      "key": "WSFS_CLIENT_SECRET",
+      "value": "",
+      "enabled": true
+    },
+    {
+      "key": "INVALID_CLIENT_SECRET",
+      "value": "invalid-secret",
+      "enabled": true
+    },
+    {
+      "key": "UNAUTHORIZED_CLIENT_ID",
+      "value": "0000000000",
+      "enabled": true
+    },
+    {
+      "key": "UNAUTHORIZED_ACCOUNT_NUMBER",
+      "value": "000000000",
+      "enabled": true
+    }
+  ],
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2026-05-07T12:58:00.000Z",
+  "_postman_exported_using": "Cursor Security Suite Generator"
+}
