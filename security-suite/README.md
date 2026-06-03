@@ -7,6 +7,7 @@ This folder contains a generated security regression suite for the uploaded Post
 - `generate_security_suite.py` - generator script that transforms a Postman collection into a security test collection.
 - `OAO_Refactoring_APIs.security.postman_collection.json` - generated suite from the uploaded source collection.
 - `security-suite.environment.template.json` - template environment file for Postman/Newman.
+- `authenticate-olb/` - dedicated security suite for `POST /clients/v1/authenticate-online-banking`.
 
 ## What the suite validates
 
