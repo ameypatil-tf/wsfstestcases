@@ -1,0 +1,60 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>UAT OLB Status Conditions Validation Report</title>
+</head>
+<body>
+  <h1>UAT OLB Status Conditions Validation Report</h1>
+  <p><strong>Endpoint:</strong> POST /clients/v1/authenticate-online-banking</p>
+  <p><strong>Environment:</strong> https://api-uat.wsfsbank.com</p>
+  <p><strong>Generated:</strong> 2026-06-03 09:42 UTC</p>
+
+  <h2>1) Validation Preconditions</h2>
+  <table border="1" cellspacing="0" cellpadding="6">
+    <tr><th>Check</th><th>Result</th><th>Evidence</th></tr>
+    <tr>
+      <td>Gateway/TLS access to API-layer auth response</td>
+      <td>Blocked</td>
+      <td>HTTP 400: "No required SSL certificate was sent"</td>
+    </tr>
+  </table>
+
+  <h2>2) Requested OLB Conditions - Validation Matrix</h2>
+  <table border="1" cellspacing="0" cellpadding="6">
+    <tr>
+      <th>Category</th>
+      <th>Expected Value</th>
+      <th>Definition</th>
+      <th>Execution Result</th>
+      <th>Status</th>
+    </tr>
+    <tr><td>Password Condition</td><td>Invalid</td><td>Too many failed login attempts</td><td>Not executed (mTLS gateway block)</td><td>Blocked</td></tr>
+    <tr><td>Password Condition</td><td>Temp</td><td>Password is temporary</td><td>Not executed (mTLS gateway block)</td><td>Blocked</td></tr>
+    <tr><td>Password Condition</td><td>ExpiredTemp</td><td>Temporary password expired</td><td>Not executed (mTLS gateway block)</td><td>Blocked</td></tr>
+    <tr><td>Password Condition</td><td>Expired</td><td>Password expired</td><td>Not executed (mTLS gateway block)</td><td>Blocked</td></tr>
+    <tr><td>Password Condition</td><td>Valid</td><td>Password valid</td><td>Not executed (mTLS gateway block)</td><td>Blocked</td></tr>
+    <tr><td>Authentication Status</td><td>Success</td><td>User credentials validated successfully</td><td>Not executed (mTLS gateway block)</td><td>Blocked</td></tr>
+    <tr><td>Authentication Status</td><td>Failed</td><td>User credentials not validated</td><td>Not executed (mTLS gateway block)</td><td>Blocked</td></tr>
+    <tr><td>User Account Status</td><td>Invalid</td><td>User is invalid</td><td>Not executed (mTLS gateway block)</td><td>Blocked</td></tr>
+    <tr><td>User Account Status</td><td>Locked</td><td>User locked in WebAdmin/Flex</td><td>Not executed (mTLS gateway block)</td><td>Blocked</td></tr>
+    <tr><td>User Account Status</td><td>Disabled</td><td>User denied/deactivated</td><td>Not executed (mTLS gateway block)</td><td>Blocked</td></tr>
+    <tr><td>User Account Status</td><td>Valid</td><td>User account valid</td><td>Not executed (mTLS gateway block)</td><td>Blocked</td></tr>
+  </table>
+
+  <h2>3) Summary</h2>
+  <table border="1" cellspacing="0" cellpadding="6">
+    <tr><th>Metric</th><th>Value</th></tr>
+    <tr><td>Total requested status conditions</td><td>11</td></tr>
+    <tr><td>Validated</td><td>0</td></tr>
+    <tr><td>Blocked</td><td>11</td></tr>
+    <tr><td>Root blocking reason</td><td>Client certificate (mTLS) required before API auth logic is reached</td></tr>
+  </table>
+
+  <h2>4) What is needed to complete validation</h2>
+  <ul>
+    <li>mTLS client certificate and key (or P12) for UAT endpoint access.</li>
+    <li>Test users mapped to each requested OLB condition value.</li>
+    <li>Expected response field names for each condition (if different from defaults).</li>
+  </ul>
+</body>
+</html>
