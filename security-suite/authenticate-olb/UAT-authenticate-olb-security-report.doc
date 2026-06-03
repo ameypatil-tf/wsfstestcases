@@ -1,0 +1,71 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Security Test Report - Authenticate OLB API</title>
+</head>
+<body>
+  <h1>Security Test Report - Authenticate OLB API</h1>
+
+  <p><strong>Endpoint:</strong> POST /clients/v1/authenticate-online-banking</p>
+  <p><strong>Environment:</strong> https://api-uat.wsfsbank.com</p>
+  <p><strong>Suite:</strong> security-suite/authenticate-olb/authenticate-olb.security.postman_collection.json</p>
+  <p><strong>Execution Tool:</strong> Newman (npx newman)</p>
+
+  <h2>1) Scope Verified</h2>
+  <ol>
+    <li>Missing client_id header</li>
+    <li>Missing client_secret header</li>
+    <li>Invalid client_secret header</li>
+    <li>Empty credential headers</li>
+    <li>Missing password</li>
+    <li>Empty password</li>
+    <li>Missing userId</li>
+    <li>Empty userId</li>
+    <li>Tampered body clientId</li>
+    <li>Invalid channel</li>
+    <li>Overlong userId</li>
+    <li>SQLi-style userId</li>
+    <li>Numeric userId type</li>
+    <li>Missing routingNumber</li>
+  </ol>
+
+  <p>Each case asserts:</p>
+  <ul>
+    <li>Rejected status code in [400, 401, 403, 404, 422]</li>
+    <li>No internal server error (not 500)</li>
+  </ul>
+
+  <h2>2) Execution Result Summary</h2>
+  <table border="1" cellspacing="0" cellpadding="6">
+    <tr><th>Metric</th><th>Result</th></tr>
+    <tr><td>Total Requests</td><td>14</td></tr>
+    <tr><td>Total Assertions</td><td>28</td></tr>
+    <tr><td>Request Failures</td><td>0</td></tr>
+    <tr><td>Assertion Failures</td><td>0</td></tr>
+    <tr><td>Overall Run Status</td><td>PASS</td></tr>
+  </table>
+
+  <p><strong>Observed status pattern:</strong> 400 returned for all 14 requests.</p>
+
+  <h2>3) Important Interpretation Note</h2>
+  <p>A direct call to this endpoint returned:</p>
+  <ul>
+    <li>400 Bad Request</li>
+    <li>"No required SSL certificate was sent"</li>
+  </ul>
+
+  <p>
+    This indicates UAT enforces mTLS at gateway/edge. The suite confirms that requests are rejected,
+    but rejection may occur at TLS/gateway layer rather than application business-auth layer.
+  </p>
+
+  <h2>4) Conclusion</h2>
+  <ul>
+    <li>Suite run passed (14/14 requests, 28/28 assertions).</li>
+    <li>Current evidence indicates rejections are primarily due to missing client certificate.</li>
+    <li>For API-layer auth assurance, rerun with valid mTLS client cert and key.</li>
+  </ul>
+
+  <p><strong>Generated:</strong> 2026-06-03 09:31 UTC</p>
+</body>
+</html>
